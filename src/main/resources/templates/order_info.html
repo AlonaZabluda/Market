@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div th:replace="~{navigation :: navigation(Cart)}"/>
+<h3>Confirmation of the order</h3>
+<br>
+<table class="table table-bordered table-dark">
+    <thead>
+    <tr >
+        <th>#</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+<tr th:each="i,iterStat : ${@cart.getItems()}">
+    <td th:text="${iterStat.count}">#</td>
+    <td th:text="${i.product.title}">title</td>
+    <td th:text="${i.quantity}">quantity</td>
+    <td th:text="${i.price}">price</td>
+</tr>
+<tr>
+    <td colspan="3">Total price</td>
+    <td th:text="${totalPrice}"></td>
+</tr>
+    </tbody>
+</table>
+    <form th:action="@{'/orders/confirm'}" method="post">
+        <div class="form-group">
+            <label th:text="#{order.phone}"/>
+            <input type="text" th:value="${user.getPhone()}" class="form-control" name="phone">
+        </div>
+        <div class="form-group">
+            <label th:text="#{order.address}"/>
+            <input type="text" class="form-control" name="address">
+        </div>
+        <button type="submit" class="btn btn-primary" th:text="#{order.confirm}"/>
+    </form>
+</div>
+</body>
+</html>

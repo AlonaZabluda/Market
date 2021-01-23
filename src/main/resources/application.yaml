@@ -1,0 +1,37 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /market
+spring:
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/shop?currentSchema=lesson4
+    username: alona
+    password: pass
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        temp:
+          use_jdbc_metadata_defaults: false
+  thymeleaf:
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+    cache: false
+    enabled: false
+  resources:
+    static-locations: file:src/main/resources/static/
+  jackson:
+    serialization:
+      indent_output: true
+  flyway:
+    enabled: false
+#  main:
+#    allow-bean-definition-overriding: true
+jwt:
+  secret: kugwhei348721eghq93u103809212pjhqwjhrg3478t5294312kjawhfkjhq3rijto34u572839841hgsjdhfg732t48374wcn98274p9b23y5c98237
+
+
+

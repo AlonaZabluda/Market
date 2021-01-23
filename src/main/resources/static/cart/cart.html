@@ -1,0 +1,19 @@
+<div>
+    <h1>Cart:</h1>
+    <table class="table table-hover" cellpadding="0" cellspacing="0" table-dark>
+        <tr>
+            <td>Title</td>
+            <td>Price</td>
+            <td>Quantity</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="orderItemDto in CartList">
+            <td>{{orderItemDto.productTitle}}</td>
+            <td>{{orderItemDto.price}}</td>
+            <td>{{orderItemDto.quantity}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" ng-click="createOrder()">Create order</button>
+</div>

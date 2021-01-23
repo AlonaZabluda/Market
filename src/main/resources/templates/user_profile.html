@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div th:replace="~{navigation :: navigation(Profile)}"/>
+<br>
+<h3 th:text="#{users.profile}"/>
+<div>
+    <table border="1" class="table table-striped table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td th:text="${user.getFirstName()}">name</td>
+            <td th:text="${user.getLastName()}">surname</td>
+            <td th:text="${user.getPhone()}">phone</td>
+            <td th:text="${user.getEmail()}">email</td>
+        </tr>
+    </table>
+</div>
+<br>
+</div>
+</body>
+</html>
